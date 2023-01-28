@@ -46,12 +46,12 @@ sum_of_first_N_even_squares <- function(n){
     }
     print(sum)
 }
-
+sum_of_first_N_even_squares(2)
+sum_of_first_N_even_squares(5)
 sum_of_first_N_even_squares(10)
 
 #part4
 tsla <- read.csv("https://people.bu.edu/kalathur/datasets/TSLA.csv")
-print(head(tsla))
 
 #a
 sm <- summary(tsla$Close)
@@ -69,7 +69,6 @@ print(sprintf("The maximum Tesla value of %d is at row %d on %s", tsla$Close[max
 
 #d-g
 totalRow <- nrow(tsla)
-print(totalRow)
 #d
 sumProfit <- sum((tsla$Close - tsla$Open) > 0, na.rm = TRUE)
 Prob_profit <- sumProfit / totalRow
