@@ -1,0 +1,5 @@
+1. TO Read the data from csv file
+2. Use divide to separate the passenger data into 2 parts, national and international
+3. Use conquer to compare the difference for each passenger data
+
+Note: The input file must obey the same format has been given.
