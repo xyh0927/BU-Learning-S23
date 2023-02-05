@@ -4,12 +4,12 @@ library(ggplot2)
 forbes <- read.csv("https://people.bu.edu/kalathur/datasets/forbes.csv")
 print(forbes)
 #a
-ggplot(forbes,aes(x = country))+geom_bar(fill = "blue") + xlab("Country") 
-+ ylab("Number of Rich People") + ggtitle("Frequencies of the Number of Rich People by Country")
+ggplot(forbes,aes(x = country))+geom_bar(fill = "blue") + xlab("Country") + 
+  ylab("Number of Rich People") + ggtitle("Frequencies of the Number of Rich People by Country")
 
 #b
 ggplot(forbes, aes(x = gender, fill = gender)) + geom_bar() + xlab("Gender") + 
-  ylab("Number of People") + ggtitle("Distribution of Females and Males in the Forbes Billionaires List")
+  ylab("Number of People") + ggtitle("Distribution of Females and Meewaales in the Forbes Billionaires List")
 
 #c
 top5 <- as.data.frame(table(forbes$category))[1:5, ]
@@ -63,11 +63,24 @@ pairs(~ MSFT + AAPL + GOOG + FB + AMZN + TSLA, data = stocks)
 
 #b
 stocks1 <- subset(stocks, select = -c(Date))
-res <- cor(stocks1)
+cm <- cor(stocks1)
 round(res, 2)
 
 #c
 summary(stocks)
+
+#d
+n <- ncol(stocks)
+for (i in 1:n) {
+  stock <- colnames(stocks)[i+1]
+  corr <- cm[i, ]
+  top3 <- names(sort(corr, decreasing = TRUE))[2:(2 + 3)]
+  cat(sprintf("Top 3 for Stock %s\n%s\t%s\t%s\n%0.2f\t%0.2f\t%0.2f\n\n",
+              stock, top3[1], top3[2], top3[3], corr[top3[1]], corr[top3[2]], corr[top3[3]]))
+}
+
+
+
 
 
 ############################################################################################################################
