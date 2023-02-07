@@ -92,6 +92,14 @@ scores <- read.csv("https://people.bu.edu/kalathur/datasets/scores.csv")
 #a
 h <- hist(scores$Score,breaks=8)
 text(h$breaks+2.5,h$counts,labels=h$counts)
+g <- hist(scores$Score,breaks=c(35,40,45,50,55,60,65,70,75,80,85))
+shc <- unlist(g[2])
+shb <- unlist(g[1])
+numIter = 10
+for (i in 1:numIter) {
+  st <- sprintf("%d students in range (%d,%d]",shc[i],shb[i],shb[i+1])
+  print(st)
+}
 
 #b
 g <- hist(scores$Score,breaks=c(30,50,70,90))
