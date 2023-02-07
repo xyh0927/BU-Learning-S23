@@ -1,0 +1,14 @@
+For the whole process, before you run, please check your input file whether it has the extra blank lines or not.
+If it has the extra blank lines, it may cause the process out of index error.
+
+For the input, you need to input all the path of the file,
+like this: /home/xuyuhan/Desktop/BU-learn-S2023/METCS566O1/HW3/pythoncode/passenger_information.csv
+
+The data in the csv file should use the format like this:
+Passenger Name,Airport,City,State,Country,Airliner
+John Doe,JFK,New York,NY,US,Delta Airlines
+Jane Doe,LAX,Los Angeles,CA,US,American Airlines
+John Smith,ORD,Chicago,IL,US,United Airlines
+Jane Smith,LHR,London,,UK,British Airways
+
+In the test case part, you will also be asked to input the path of the test dataset.
