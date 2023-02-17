@@ -18,7 +18,7 @@ s <- sd(participant)
 n <- length(participant)
 t <- (avg - 425)/ (s/sqrt(n))
 abs_t <- abs(t)
-abs_t #reject H0
+abs_t #do not reject H0
 #step5
 t.test(participant, mu = avg,alternative = "two.sided")#can not reject because participant is not differ from 425
 
@@ -31,13 +31,19 @@ t.test(participant, mu = avg, alternative = "two.sided", conf.level = 0.9)
 #step3: reject h0 if abs(t)>=1.721, or do not reject
 #step4: 
 avg1 <- mean(participant)
+avg1
 avg2 <- mean(nonparticipant)
+avg2
 s1 <- sd(participant)
+s1
 s2 <- sd(nonparticipant)
+s2
 n1 <- length(participant)
+n1
 n2 <- length(nonparticipant)
+n2
 t <- (avg1-avg2)/(sqrt((s1^2/n1)+(s2^2/n2)))
-t #reject h0
+t #do not reject h0
 #step5: 
 t.test(participant,nonparticipant,alternative = "greater", conf.level = 0.95)
 #participants consumed more than nonparticipant
