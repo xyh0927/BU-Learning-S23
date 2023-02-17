@@ -1,0 +1,9 @@
+passenger_id,airport,city,state,country,airliner,distance
+A,KLAX,Los Angeles,CA,US,AAL,4799
+B,KORD,Chicago,IL,US,DAL,1580
+C,KJFK,NewYork,NY,US,AAL,342
+D,VHHH,Hong Kong,Hong Kong,China,CPA,12796
+E,EGLL,London,London,UK,BAW,496
+F,YSSY,Sydney,Sydney,Australia,AAL,16263
+G,PHNL,Honolulu,HI,US,UAL,8200
+H,PANC,Anchorage,AK,US,DAL,5420
