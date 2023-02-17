@@ -46,11 +46,11 @@ plot(x, cdf2, type = "s", xlab = "Number of failures", ylab = "Probability",
 
 #b
 prob_4 <- dnbinom(4, size = r, prob = p2)
-prob_4
+print(prob_4)
 
 #c
 prob_atmost_4 <- pnbinom(4, size = r, prob = p2)
-prob_atmost_4
+print(prob_atmost_4)
 
 #d
 set.seed(123)
@@ -69,20 +69,21 @@ p3 <- 0.6
 
 #a
 x <- 0:20
-prob <- dbinom(x, n3, p3)
-plot(x, prob, type = "h", xlab = "Number of Multiple Choice Questions", ylab = "Probability")
+pmf3a <- dhyper(x, m = p3*100, n = 40, k = n3)
+plot(x, pmf3a, type = "h", xlab = "Number of Multiple Choice Questions", ylab = "Probability")
 
 #b
-p_exact10 <- dbinom(10, n3, p3)
+p_exact10 <- dhyper(10, m = p3*100, n = 40, k = n3)
 print(p_exact10)
 
+
 #c
-p_least10 <- 1 - pbinom(9, n3, p3)
+p_least10 <- 1 - phyper(9, m = p3*100, n = 40, k = n3)
 print(p_least10)
 
 #d
 set.seed(123)
-sim_data <- rbinom(1000, n3, p3)
+sim_data <- rhyper(1000, m = p3*100, n = 40, k = n3)
 barplot(table(sim_data), xlab = "Number of Multiple Choice Questions", ylab = "Frequency")
 
 #########################################################################################################################################
@@ -92,18 +93,18 @@ barplot(table(sim_data), xlab = "Number of Multiple Choice Questions", ylab = "F
 numQ <- 10
 
 #a
-dpois(8, numQ)
+print(dpois(8, numQ))
 
 #b
-ppois(8, numQ)
+print(ppois(8, numQ))
 
 #c
-ppois(12, numQ) - ppois(5, numQ)
+print(ppois(12, numQ) - ppois(5, numQ))
 
 #d
 x <- 0:20
 prob <- dpois(x, numQ)
-plot(x, prob, type = "h", xlab = "Number of Questions", ylab = "Probability")
+plot(x, prob, type = "h", xlab = "Number of Questions", ylab = "Probability", main = "PMF")
 
 #e
 set.seed(123)
@@ -125,26 +126,26 @@ plot(x, y, type = "l", main = "PDF",
      xlab = "Money Spent ($)", ylab = "Density")
 
 #b
-1 - pnorm(120, mean = Avg, sd = stand_d)
+print(1 - pnorm(120, mean = Avg, sd = stand_d))
 
 #c
-pnorm(90, mean = Avg, sd = stand_d) - pnorm(80, mean = Avg, sd = stand_d)
+print(pnorm(90, mean = Avg, sd = stand_d) - pnorm(80, mean = Avg, sd = stand_d))
 
 #d
-1 - pnorm(Avg + stand_d, mean = Avg, sd = stand_d) + pnorm(Avg - stand_d, mean = Avg, sd = stand_d)
-1 - pnorm(Avg + 2*stand_d, mean = Avg, sd = stand_d) + pnorm(Avg - 2*stand_d, mean = Avg, sd = stand_d)
-1 - pnorm(Avg + 3*stand_d, mean = Avg, sd = stand_d) + pnorm(Avg - 3*stand_d, mean = Avg, sd = stand_d)
+print(pnorm(Avg + stand_d, mean = Avg, sd = stand_d) + pnorm(Avg - stand_d, mean = Avg, sd = stand_d))
+print(pnorm(Avg + 2*stand_d, mean = Avg, sd = stand_d) + pnorm(Avg - 2*stand_d, mean = Avg, sd = stand_d))
+print(pnorm(Avg + 3*stand_d, mean = Avg, sd = stand_d) + pnorm(Avg - 3*stand_d, mean = Avg, sd = stand_d))
 
 #e
-qnorm(0.1, mean = Avg, sd = stand_d)
-qnorm(0.9, mean = Avg, sd = stand_d)
+print(qnorm(0.1, mean = Avg, sd = stand_d))
+print(qnorm(0.9, mean = Avg, sd = stand_d))
 
 #f
-qnorm(0.98, mean = Avg, sd = stand_d)
+print(qnorm(0.98, mean = Avg, sd = stand_d))
 
 
 #g
 set.seed(123)
 visitors <- rnorm(10000, mean = Avg, sd = stand_d)
 hist(visitors, main = "Money Spent by Visitors",
-     xlab = "Money Spent ($)", col = "blue", breaks = 20)
+     xlab = "Money Spent ($)", col = "red", breaks = 20)
