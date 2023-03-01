@@ -1,37 +1,32 @@
 #part1
 boston <- read.csv("https://people.bu.edu/kalathur/datasets/bostonCityEarnings.csv", colClasses = c("character", "character", "character", "integer", "character"))
-boston$Total.Earning
 
 #a
-hist(boston$Earnings, xlim=c(40000,400000))
+breaks <- seq(0, 400000, by = 50000)
+hist(boston$Earnings, breaks = breaks, xlab = "Earnings", main = "Histogram of Boston City Earnings")
 mean_earnings <- mean(boston$Earnings)
-mean_earnings
 sd_earnings <- sd(boston$Earnings)
-sd_earnings
+cat("Mean of earnings: ", mean_earnings, "\n")
+cat("Standard deviation of earnings: ", sd_earnings, "\n")
 
 #b
 set.seed(9286)
-sample_means_10<- replicate(1000, mean(sample(boston$Earnings, size = 10, replace = FALSE)))
-hist(sample_means_10, xlab = "Sample Means", main = "Histogram of Sample Means (n = 10)")
-abline(v = mean(sample_means_10), col = "red")
-sample_means_10_mean <- mean(sample_means_10)
-sample_means_10_mean
-sample_means_10_sd <- sd(sample_means_10)
-sample_means_10_sd
+sample_means <- replicate(1000, mean(sample(boston$Earnings, size = 10, replace = FALSE)))
+hist(sample_means, xlab = "Sample Means", main = "Histogram of Sample Means (n = 10)")
+mean_sample_means <- mean(sample_means)
+sd_sample_means <- sd(sample_means)
+cat("Mean of sample means: ", mean_sample_means, "\n")
+cat("Standard deviation of sample means: ", sd_sample_means, "\n")
+
 
 #c
-set.seed(9286) 
-sample_means_40 <- replicate(1000, mean(sample(boston$Earnings, size = 40, replace = FALSE)))
-hist(sample_means_40, xlab = "Sample Means", main = "Histogram of Sample Means (n = 40)")
-abline(v = mean(sample_means_40), col = "red")
-sample_means_40_mean <- mean(sample_means_40)
-sample_means_40_mean
-sample_means_40_sd <- sd(sample_means_40)
-sample_means_40_sd
-
-#d
-#We can see that the mean of the original data and the sample means are similar, but the standard deviation of the sample means is much smaller than the standard deviation of the original data. This is due to the fact that as the sample size increases, the variance of the sample mean decreases. We can see this by comparing the standard deviation of the sample means from part b) and part c), which decreases as the sample size increases.
-#The histograms also show how the distribution of the sample means becomes narrower and more concentrated around the true mean of the population as the sample size increases.
+set.seed(9286)
+sample_means <- replicate(1000, mean(sample(boston$Earnings, size = 40, replace = FALSE)))
+hist(sample_means, xlab = "Sample Means", main = "Histogram of Sample Means (n = 40)")
+mean_sample_means <- mean(sample_means)
+sd_sample_means <- sd(sample_means)
+cat("Mean of sample means: ", mean_sample_means, "\n")
+cat("Standard deviation of sample means: ", sd_sample_means, "\n")
 
 #part2
 #a
