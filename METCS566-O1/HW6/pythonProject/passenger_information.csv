@@ -1,0 +1,9 @@
+passenger_id,airport,city,state,country,airliner
+A,LAX,Los Angeles,CA,US,AAL
+B,ORD,Chicago,IL,US,DAL
+C,KFK,New York,NY,US,AAL
+D,HKG,Hong Kong,Hong Kong,China,CPA
+E,LHR,London,London,UK,BAW
+F,SYD,Sydney,Sydney,Australia,AAL
+G,HNL,Honolulu,HI,US,UAL
+H,ANC,Anchorage,AK,US,DAL
